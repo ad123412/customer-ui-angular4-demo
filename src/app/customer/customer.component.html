@@ -1,0 +1,74 @@
+<div class="container" *ngIf="!isErrorOccurredInCustomerDetails && customerId">
+  <div class="row">
+    <div class="panel panel-default col-lg-6 col-md-6 col-sm-6 col-xs-6">
+      <div class="panel-heading row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+          <span class="h4">Customer Information</span>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5" style="float: right">
+          <div style="float: right">
+            <button type="button" class="btn btn-default" aria-label="Right Align"  (click)="manageCustomerDetailsTabs()">
+              <span class="glyphicon glyphicon-user" aria-hidden="true" *ngIf="!showCustomerTabs"> ShowDetails</span>
+              <span class="glyphicon glyphicon-user" aria-hidden="true" *ngIf="showCustomerTabs"> HideDetails</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="container-fluid panel-body">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="jumbotron">
+              <span>Customer Name </span>
+            </label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="h4">{{" " + customerName}}</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="jumbotron">
+              <span>Customer Id </span>
+            </label>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+            <label class="h4">{{" " + customerId}}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="showCustomerTabs">
+    <div>
+      <ul class="nav nav-tabs nav-justified">
+        <li role="presentation"
+            routerLinkActive="active"
+            routerLinkActiveOptions="{exact: true}">
+          <a routerLink="/contact">Contacts</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active"
+            routerLinkActiveOptions="{exact: true}">
+          <a routerLink="/account">Accounts</a>
+        </li>
+        <li role="presentation"
+            routerLinkActive="active"
+            routerLinkActiveOptions="{exact: true}">
+          <a routerLink="/credit">Credits</a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="container-fluid alert alert-danger" role="alert" *ngIf="isErrorOccurredInCustomerDetails">
+  {{errorText}}
+</div>
+
+
