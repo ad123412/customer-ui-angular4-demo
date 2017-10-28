@@ -1,3 +1,30 @@
-<p>
-  credit works!
-</p>
+<div class="panel panel-default" *ngFor="let profile of customerDetailsResponse.customerCreditProfile; let index = index">
+    
+    <div class="panel-body">
+      <div>
+        <label class="jumbotron">
+          <span style="font-size: 20px"></span> Credit Profile ID
+        </label><span class="h4"> {{profile.id}}</span>
+      </div>
+      <div>
+        <label class="jumbotron">
+          <span style="font-size: 20px"></span> Credit Profile Date
+        </label> <span class="h4">{{profile.creditProfileDate}}</span>
+      </div>
+      <div>
+        <label class="jumbotron">
+          <span style="font-size: 20px"></span> Valid For
+        </label> <span class="h4">{{profile.validFor.startDateTime + "  -  " + profile.validFor.endDateTime}}</span>
+      </div>
+      <div>
+        <label class="jumbotron">
+          <span style="font-size: 20px"></span> Credit Risk Rating
+        </label> <span class="h4">{{profile.creditRiskRating}}</span>
+      </div>
+      <div>
+        <label class="jumbotron">
+          <span style="font-size: 20px"></span> Credit Score
+        </label> <span class="h4">{{profile.creditScore}}</span>
+      </div>
+    </div>	
+</div>
